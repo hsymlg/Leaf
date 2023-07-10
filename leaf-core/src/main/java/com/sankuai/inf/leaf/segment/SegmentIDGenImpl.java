@@ -39,6 +39,9 @@ public class SegmentIDGenImpl implements IDGen {
     private static final long SEGMENT_DURATION = 15 * 60 * 1000L;
     private ExecutorService service = new ThreadPoolExecutor(5, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>(), new UpdateThreadFactory());
     private volatile boolean initOK = false;
+    /**
+     * key-号段
+     */
     private Map<String, SegmentBuffer> cache = new ConcurrentHashMap<String, SegmentBuffer>();
     private IDAllocDao dao;
 
